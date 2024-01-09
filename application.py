@@ -11,8 +11,8 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
 from langchain.llms import OpenAI
 import os
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 import time
 from langchain.chains.question_answering import load_qa_chain
 from langchain import OpenAI
@@ -22,10 +22,10 @@ from helper_functions import (read_doc,
                               retrieve_answer,
                               retrieve_query)
 
-OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
-PINECONE_API_KEY = os.environ["PINECONE_API_KEY"]
-PINECONE_ENVIRONMENT = os.environ["PINECONE_ENVIRONMENT"]
-PINECONE_INDEX_NAME = os.environ["PINECONE_INDEX_NAME"]
+OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
+PINECONE_API_KEY = os.environ['PINECONE_API_KEY']
+PINECONE_ENVIRONMENT = os.environ['PINECONE_ENVIRONMENT']
+PINECONE_INDEX_NAME = os.environ['PINECONE_INDEX_NAME']
 
 application = Flask(__name__)
 
@@ -56,7 +56,7 @@ def predict_datapoint():
           environment=f"{PINECONE_ENVIRONMENT}"
         )
         index_name=f"{PINECONE_INDEX_NAME}"
-        # time.sleep(20)
+        time.sleep(2)
 
         llm = OpenAI(model_name="davinci-002", temperature=0.5)
         chain = load_qa_chain(llm, chain_type="stuff")

@@ -22,6 +22,17 @@
     border-radius: 8px;
   }
 
+  .sampletext {
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: justify;
+    background-color: #f4f7f8;
+    border: 0 solid #ccc;
+    border-radius: 8px;
+    line-height: 1.3;
+  }
+
   input[type="text"],
   input[type="password"],
   input[type="date"],
@@ -110,31 +121,40 @@
 <body>
   <div class="login">
     <h1 class="text-center">
-      <legend>Ask anything reagarding AI and ML</legend>
+      <legend>Personalized Search Engine Interface </legend>
     </h1>
+    <section class="sampletext">
+      <label>Application utilizes open-source Language Model (LLM) technology, specifically leveraging models such as
+        openAI's, Langchain, and Pinecone. It employs Fast and Fresh Vector Search using Pinecone as a cloud-based
+        vector database. This application can generate personalized search results for any document,
+        with the current
+        <a
+          href="https://github.com/rkstu/Personalized-Search-Engine-Interface-and-Chatbot/tree/main/documents">document</a>
 
+        focusing on topics related to AI and ML.</label>
+    </section>
     <form action="{{ url_for('predict_datapoint')}}" method="post">
       <section class="container">
 
         <div class="float-child">
-          <label class="form-label">Results can take upto 40 seconds to display</label>
-          <input class="form-control" type="text" name="question" placeholder="unleash your curiosity .. just ask" />
+          <!-- <label class="form-label">Please use complete sentences (ex - what is perceptron in neural network ?)
+          </label> -->
+          <input class="form-control" type="text" name="question"
+            placeholder="Please use complete sentences (ex - what is perceptron in neural network ?)" />
         </div>
         <div class="mb-3">
           <input class="btn btn-primary" type="submit" value="Ask" required />
         </div>
     </form>
     <h2>
-      Result:</h2>
-    <div>{{results}}</div>
-
-
+      Result:
+    </h2>{{results}}
     </section>
 
     <section>
       <p class="profile">
 
-        <a href="https://github.com/rkstu/AutomatedAcademicPerformancePredictor">GitHub Link </a> |
+        <a href="https://github.com/rkstu/Personalized-Search-Engine-Interface-and-Chatbot/">GitHub Link </a> |
         <a href="https://www.linkedin.com/in/rkzero/">My Linkdin profile</a>
       </p>
     </section>
