@@ -1,0 +1,144 @@
+<html>
+
+<style>
+  *,
+  *:before,
+  *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: #343a40;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 20px;
+  }
+
+  select {
+    padding: 6px 0;
+    height: 32px;
+    border-radius: 2px;
+  }
+
+  .margin-left {
+    margin-left: 10px;
+  }
+
+  .margin-right {
+    margin-right: 10px;
+  }
+
+  .float-container {
+    /* border: 3px solid #fff; */
+    /* padding: 20px; */
+  }
+
+
+  .btn-primary {
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+  }
+
+  .btn-primary:hover {
+    color: #373433;
+    border: #27a047 solid 1px;
+    background: #fff;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .login {
+    margin-top: 30px;
+  }
+
+  a {
+    color: #51cf66;
+  }
+
+  .profile {
+
+    text-align: center;
+  }
+</style>
+
+<body>
+  <div class="login">
+    <h1 class="text-center">
+      <legend>Ask anything reagarding AI and ML</legend>
+    </h1>
+
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+      <section class="container">
+
+        <div class="float-child">
+          <label class="form-label">Results can take upto 40 seconds to display</label>
+          <input class="form-control" type="text" name="question" placeholder="unleash your curiosity .. just ask" />
+        </div>
+        <div class="mb-3">
+          <input class="btn btn-primary" type="submit" value="Ask" required />
+        </div>
+    </form>
+    <h2>
+      Result: {{results}}
+    </h2>
+    </section>
+
+    <section>
+      <p class="profile">
+
+        <a href="https://github.com/rkstu/AutomatedAcademicPerformancePredictor">GitHub Link </a> |
+        <a href="https://www.linkedin.com/in/rkzero/">My Linkdin profile</a>
+      </p>
+    </section>
+
+  </div>
+
+  <body>
+
+</html>
