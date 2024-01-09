@@ -41,7 +41,6 @@ def predict_datapoint():
     else:
         question=str(request.form.get('question'))
 
-        print("WOrking 1")
 
         embeddings=OpenAIEmbeddings(api_key=${{ secrets.OPENAI_API_KEY }})
         # print("Embeddings: ", embeddings)
@@ -61,11 +60,6 @@ def predict_datapoint():
         index = Pinecone.from_documents("", embeddings, index_name=index_name)
         doc_search = index.similarity_search(question, k=2)
         answer=chain.run(input_documents=doc_search, question=question)
-        # print(str(response))
-
-        # out_query = "How much the agriculture target will be increased by how many crores"
-        # out_query = "Why agriculture is important?"
-        # time.sleep(20)
         answer = str(answer).replace('\n', ' ')
 
 
