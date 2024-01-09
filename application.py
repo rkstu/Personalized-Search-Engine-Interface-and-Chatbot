@@ -42,15 +42,15 @@ def predict_datapoint():
         question=str(request.form.get('question'))
 
 
-        embeddings=OpenAIEmbeddings(api_key=${{ secrets.OPENAI_API_KEY }})
+        embeddings=OpenAIEmbeddings(api_key="${{ secrets.OPENAI_API_KEY }}")
         # print("Embeddings: ", embeddings)
 
         ## Vector search DB in  Pinecone
         pinecone.init(
-          api_key=${{ secrets.PINECONE_API_KEY }},
-          environment=${{ secrets.PINECONE_ENVIRONMENT }}
+          api_key="${{ secrets.PINECONE_API_KEY }}",
+          environment="${{ secrets.PINECONE_ENVIRONMENT }}"
         )
-        index_name=${{ secrets.PINECONE_INDEX_NAME }}
+        index_name="${{ secrets.PINECONE_INDEX_NAME }}"
         # time.sleep(20)
 
         llm = OpenAI(model_name="davinci-002", temperature=0.5)
