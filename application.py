@@ -22,10 +22,10 @@ from helper_functions import (read_doc,
                               retrieve_answer,
                               retrieve_query)
 
-OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
-PINECONE_API_KEY = os.environ['PINECONE_API_KEY']
-PINECONE_ENVIRONMENT = os.environ['PINECONE_ENVIRONMENT']
-PINECONE_INDEX_NAME = os.environ['PINECONE_INDEX_NAME']
+OPENAI_API_KEY = "${{ secrets.OPENAI_API_KEY }}"
+PINECONE_API_KEY = "${{ secrets.PINECONE_API_KEY }}"
+PINECONE_ENVIRONMENT = "${{ secrets.PINECONE_ENVIRONMENT }}"
+PINECONE_INDEX_NAME = "${{ secrets.PINECONE_INDEX_NAME }}"
 
 application = Flask(__name__)
 
@@ -47,15 +47,15 @@ def predict_datapoint():
         question=str(request.form.get('question'))
 
 
-        embeddings=OpenAIEmbeddings(api_key=f"{OPENAI_API_KEY}")
+        embeddings=OpenAIEmbeddings(api_key=OPENAI_API_KEY)
         # print("Embeddings: ", embeddings)
 
         ## Vector search DB in  Pinecone
         pinecone.init(
-          api_key=f"{PINECONE_API_KEY}",
-          environment=f"{PINECONE_ENVIRONMENT}"
+          api_key=PINECONE_API_KEY,
+          environment=PINECONE_ENVIRONMENT
         )
-        index_name=f"{PINECONE_INDEX_NAME}"
+        index_name=PINECONE_INDEX_NAME
         time.sleep(2)
 
         llm = OpenAI(model_name="davinci-002", temperature=0.5)
@@ -74,7 +74,7 @@ def predict_datapoint():
 
 
 if __name__=="__main__":
-    print("PINECONE_API_KEY",PINECONE_API_KEY )
+    # print("PINECONE_API_KEY",PINECONE_API_KEY )
     app.run(host="0.0.0.0")        
 
 
