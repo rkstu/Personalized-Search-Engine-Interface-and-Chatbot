@@ -74,6 +74,7 @@ def predict_datapoint():
 
 
 if __name__=="__main__":
+    print("PINECONE_API_KEY",PINECONE_API_KEY )
     app.run(host="0.0.0.0")        
 
 
