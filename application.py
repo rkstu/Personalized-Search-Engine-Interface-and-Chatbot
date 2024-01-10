@@ -22,10 +22,10 @@ from helper_functions import (read_doc,
                               retrieve_answer,
                               retrieve_query)
 
-OPENAI_API_KEY = "${{ secrets.OPENAI_API_KEY }}"
-PINECONE_API_KEY = "${{ secrets.PINECONE_API_KEY }}"
-PINECONE_ENVIRONMENT = "${{ secrets.PINECONE_ENVIRONMENT }}"
-PINECONE_INDEX_NAME = "${{ secrets.PINECONE_INDEX_NAME }}"
+OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+PINECONE_INDEX_NAME = os.environ["PINECONE_INDEX_NAME"]
+PINECONE_ENVIRONMENT = os.environ["PINECONE_ENVIRONMENT"]
+PINECONE_API_KEY = os.environ["PINECONE_API_KEY"]
 
 application = Flask(__name__)
 
