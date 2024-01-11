@@ -47,9 +47,6 @@ jobs:
           path: |
             release.zip
             !venv/
-            
-      - name: optional test for var
-        run: python optional.py
 
   deploy:
     runs-on: ubuntu-latest
