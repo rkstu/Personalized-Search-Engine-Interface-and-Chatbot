@@ -17,6 +17,7 @@ env:
   PINECONE_INDEX_NAME: ${{ secrets.PINECONE_INDEX_NAME }}
   SAMPLE_TEXT: ${{ secrets.SAMPLE_TEXT }}
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,7 +37,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-
+      
       - name: Run tests 
           python optional.py
 
