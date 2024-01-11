@@ -5,14 +5,14 @@ import pandas as pd
 import openai
 import langchain
 import pinecone
-from langchain.document_loaders import PyPDFDirectoryLoader
+from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores import Pinecone
-from langchain.llms import OpenAI
+from langchain_community.embeddings.openai import OpenAIEmbeddings
+from langchain_community.vectorstores import Pinecone
+from langchain_community.llms import OpenAI
 import os
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 import time
 from langchain.chains.question_answering import load_qa_chain
 from langchain import OpenAI
@@ -80,7 +80,7 @@ def predict_datapoint():
 
 
 if __name__=="__main__":
-    # print("PINECONE_API_KEY",PINECONE_API_KEY )
-    app.run(host="0.0.0.0")        
+    from waitress import serve
+    serve(app, host="0.0.0.0")        
 
 

@@ -3,9 +3,11 @@ tiktoken
 pinecone-client
 pypdf
 openai
+langchain-community
 langchain
 pandas
 numpy
 python-dotenv
 flask
+waitress
 #-e .
