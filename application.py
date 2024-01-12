@@ -50,31 +50,31 @@ def predict_datapoint():
     if request.method=='GET':
         return render_template('index.html')
     else:
-        question=str(request.form.get('question'))
+        # question=str(request.form.get('question'))
 
 
-        embeddings=OpenAIEmbeddings(api_key=OPENAI_API_KEY)
-        # print("Embeddings: ", embeddings)
+        # embeddings=OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+        # # print("Embeddings: ", embeddings)
 
-        ## Vector search DB in  Pinecone
-        pinecone.init(
-          api_key=PINECONE_API_KEY,
-          environment=PINECONE_ENVIRONMENT
-        )
-        index_name=PINECONE_INDEX_NAME
-        time.sleep(2)
+        # ## Vector search DB in  Pinecone
+        # pinecone.init(
+        #   api_key=PINECONE_API_KEY,
+        #   environment=PINECONE_ENVIRONMENT
+        # )
+        # index_name=PINECONE_INDEX_NAME
+        # time.sleep(2)
 
-        llm = OpenAI(model_name="davinci-002", temperature=0.5)
-        chain = load_qa_chain(llm, chain_type="stuff")
+        # llm = OpenAI(model_name="davinci-002", temperature=0.5)
+        # chain = load_qa_chain(llm, chain_type="stuff")
 
-        # query = "Tell me something about AI?"
-        index = Pinecone.from_documents("", embeddings, index_name=index_name)
-        doc_search = index.similarity_search(question, k=2)
-        answer=chain.run(input_documents=doc_search, question=question)
-        answer = str(answer).replace('\n', ' ')
+        # # query = "Tell me something about AI?"
+        # index = Pinecone.from_documents("", embeddings, index_name=index_name)
+        # doc_search = index.similarity_search(question, k=2)
+        # answer=chain.run(input_documents=doc_search, question=question)
+        # answer = str(answer).replace('\n', ' ')
 
-
-        return f"<div><{answer}</div>"
+        return f"So, get and post request is working, BTW current request is {request.method}"
+        # return f"<div><{answer}</div>"
         # return render_template('home.html',results=answer)
     
 
