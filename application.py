@@ -74,7 +74,8 @@ def predict_datapoint():
         answer = str(answer).replace('\n', ' ')
 
 
-        return render_template('home.html',results=answer)
+        return f"<div><{answer}</div>"
+        # return render_template('home.html',results=answer)
     
 
 
